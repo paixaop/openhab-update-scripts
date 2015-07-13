@@ -196,6 +196,13 @@ cp ./configurations_old/logback_debug.xml ./configurations/logback_debug.xml
 mv /opt/openhab /opt/openhab_old-${number}
 ln -s ${ohpath}${version}-${number}/runtime /opt/openhab
 
+
+echo "Replacing start.sh and start_debug.sh with my version so it supports zwave"
+mv /opt/openhab/start.sh /opt/openhab/start.sh.original
+mv /opt/openhab/start_debug.sh /opt/openhab/start_debug.sh.original
+cp start.sh /opt/openhab/
+cp start_debug.sh /opt/openhab
+
 echo "ready to switch to openHAB${dist}-${number}"
 
 exit 0
